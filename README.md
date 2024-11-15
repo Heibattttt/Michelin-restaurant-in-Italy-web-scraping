@@ -3,4 +3,5 @@
 This repository contains the solution for Homework 3 of the course Algorithmic Methods of Data Mining.
 
 ### Repository Contents
-adm_hw3.ipynb: A Jupyter Notebook containing Python solutions of Homework3.
+- adm_hw3.ipynb: A Jupyter Notebook containing Python solutions of Homework3.
+- `file/`: A folder containing all output files generated from the homework
