@@ -1,7 +1,7 @@
 # Homework 3 - Algorithmic Methods of Data Mining
 
 ## Michelin Restaurants in Italy
-
+![Michelin Restaurant](https://www.chase.com/content/dam/unified-assets/photography/articles/credit-card/basics/seo_michelin-restaurants-that-deliver_101222.jpg)
 This repository contains the solution for **Homework 3** of the course *Algorithmic Methods of Data Mining*.
 
 The main goal of this homework is to explore and analyze Michelin restaurant data in Italy. The project includes multiple tasks such as data cleaning, feature extraction, text processing, and visualization.
