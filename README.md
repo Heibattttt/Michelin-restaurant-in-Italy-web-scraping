@@ -1,14 +1,21 @@
 # Homework 3 - Algorithmic Methods of Data Mining
-## Michelin restaurants in Italy
-This repository contains the solution for Homework 3 of the course Algorithmic Methods of Data Mining.
+
+## Michelin Restaurants in Italy
+
+This repository contains the solution for **Homework 3** of the course *Algorithmic Methods of Data Mining*.
+
+The main goal of this homework is to explore and analyze Michelin restaurant data in Italy. The project includes multiple tasks such as data cleaning, feature extraction, text processing, and visualization.
 
 ### Repository Contents
-- adm_hw3.ipynb: a Jupyter Notebook containing Python solutions of Homework3.
-- `file/`: a folder containing all output files generated from the homework
-    - `file/all_restaurants_data.csv`: a dataset containing all information about restaurants collected from the Michelin Restaurant website in Italy, output for question 1.3
-    - `file/vocabulary.csv`: a csv file that maps each word in the description variable of all_restaurant_data to a unique integer (term_id), output for question 2.1.1
-    - `file/inverted_index.pkl`: an pkl file that contains a dictionary mapping each term_id to a list of document IDs where that term appears, output for question 2.1.1
-    - `file/coordinates.csv`: a csv file that contains all coordinates for unique cities in the dataset, output for question 4
-    - `file/top_k_restaurants_map.html`: an html file displaying the top-k restaurants on a map based on the custom score, output for question 4
+
+- **`adm_hw3.ipynb`**: A Jupyter Notebook containing Python solutions for Homework 3. It includes code, explanations, and outputs for each question of the assignment.
+  
+- **`file/`**: A folder containing all output files generated from the homework tasks.
+    - **[all_restaurants_data.csv](file/all_restaurants_data.csv)**: Dataset containing all information about Michelin restaurants in Italy, collected from the Michelin website. This file is the output for **Question 1.3**.
+    - **[vocabulary.csv](file/vocabulary.csv)**: A CSV file that maps each word in the `description` column of `all_restaurants_data.csv` to a unique integer (`term_id`). This file is the result of **Question 2.1.1**.
+    - **[inverted_index.pkl](file/inverted_index.pkl)**: A pickle file containing a dictionary mapping each `term_id` to a list of document IDs where that term appears. This file is the output for **Question 2.1.1**.
+    - **[coordinates.csv](file/coordinates.csv)**: A CSV file containing all unique city coordinates in the dataset. This file is the output for **Question 4**.
+    - **[top_k_restaurants_map.html](file/top_k_restaurants_map.html)**: An HTML file displaying the top-k Michelin restaurants based on a custom scoring system, visualized on a map. This is the result for **Question 4**.
+
 
    
