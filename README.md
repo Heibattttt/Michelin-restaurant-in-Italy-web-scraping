@@ -15,7 +15,7 @@ The main goal of this homework is to explore and analyze Michelin restaurant dat
 - **[vocabulary.csv](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/files/vocabulary.csv)**: A CSV file that maps each word in the `description` column of `all_restaurants_data.csv` to a unique integer (`term_id`). This file is the result of **Question 2.1.1**.
 - **[inverted_index.pkl](file/inverted_index.pkl)**: A pickle file containing a dictionary mapping each `term_id` to a list of document IDs where that term appears. This file is the output for **Question 2.1.1**.
 - **[coordinates.csv](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/files/coordinates.csv)**: A CSV file containing all unique city coordinates in the dataset. This file is the output for **Question 4**.
-- **[top_k_restaurants_map.html](file/top_k_restaurants_map.html)**: An HTML file displaying the top-k Michelin restaurants based on a custom scoring system, visualized on a map. This is the result for **Question 4**.
+- **[top_k_restaurants_map.html](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/files/top_k_restaurants_map.html)**: An HTML file displaying the top-k Michelin restaurants based on a custom scoring system, visualized on a map. This is the result for **Question 4**.
 
 
    
