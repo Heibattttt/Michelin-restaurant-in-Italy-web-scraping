@@ -3,15 +3,15 @@
 ## Michelin Restaurants in Italy
 ![Michelin Restaurant](https://www.chase.com/content/dam/unified-assets/photography/articles/credit-card/basics/seo_michelin-restaurants-that-deliver_101222.jpg)
 This repository contains the solution for **Homework 3** of the course *Algorithmic Methods of Data Mining*.
-
+---
 The main goal of this homework is to explore and analyze Michelin restaurant data in Italy. The project includes multiple tasks such as data cleaning, feature extraction, text processing and visualization.
-To get all the data that we needed, we did a web scraping process of the [**Michelin restaurants site**](https://guide.michelin.com/en/it/restaurants) and we extracted the html of each restaurant on the page and saved it in a folder called [**HTML Michelin Restaurants**](https://www.dropbox.com/scl/fo/0j7jc0ltldfykhayu7yv5/AMGq46jObUCNfQYPiC58QhA?rlkey=3a94pnup3e443yhjwmu5s88wu&st=xog2xz1h&dl=0).
+To get all the data that we needed, we did a web scraping process of the [*Michelin restaurants site*](https://guide.michelin.com/en/it/restaurants) and we extracted the html of each restaurant on the page and saved it in a folder called [*HTML Michelin Restaurants*](https://www.dropbox.com/scl/fo/0j7jc0ltldfykhayu7yv5/AMGq46jObUCNfQYPiC58QhA?rlkey=3a94pnup3e443yhjwmu5s88wu&st=xog2xz1h&dl=0).
 
 ### Repository Contents
-- [**`Project/`**](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/tree/main/Project): A folder containing a notebook file with the progress and comments of the tasks performed and a .py file with the code of an advanced search algorithm. It includes:
-  - [**Michelin-restaurant-in-Italy-web-scraping.ipynb**](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/Project/Scraping%20Michelin%20restaurants.ipynb): A Jupyter Notebook containing Python solutions for Homework 3. It includes code, explanations, and outputs for each question of the assignment. 
+- [**`Project/`**](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/tree/main/Project): A folder containing a notebook file with the progress and comments of the tasks performed and a fil.py with the code of an advanced search engine algorithm. Specifically it includes:
+  - [**Michelin-restaurant-in-Italy-web-scraping.ipynb**](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/Project/Scraping%20Michelin%20restaurants.ipynb): A Jupyter Notebook containing Python code, explanations, outputs for each question of the homework and a pseudocode of an algorithm for moving a robot in a warehouse for packages collection. 
     - **Warning:** To view all output from the file please download the file and read it in a supported development environment;
-  - [**search_engine_filters.py**](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/Project/search_engine_filters.py): This file was used in `Michelin-restaurant-in-Italy-web` and is an interactive restaurant search engine built with Python and ipywidgets, which offers advanced filtering capabilities. It features an intuitive interface with dynamic drop-down menus and checkboxes.
+  - [**search_engine_filters.py**](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/Project/search_engine_filters.py): This file was used in `Michelin-restaurant-in-Italy-web` for Bonus part and is an interactive restaurant search engine built with Python and ipywidgets, which offers advanced filtering capabilities. It features an intuitive interface with dynamic drop-down menus and checkboxes.
   
 - [**`files/`**](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/tree/main/files): A folder containing all output files generated from the homework tasks. In detail:
   - **[all_restaurants_data.csv](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/files/all_restaurants_data.csv)**: Dataset containing all information about Michelin restaurants in Italy, collected from the Michelin website. This file is the output for **Question 1.3**;
