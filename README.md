@@ -17,7 +17,7 @@ To get all the data that we needed, we did a web scraping process of the [*Miche
     - **Warning**: To view the interactive interface, make sure to run the code cell in a environment with `ipywidgets` enabled. *Here is an example of how it works:*
   ![Search Engine](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/Images/Advance%20Search%20Engine.png)
   ---
-  ### Dropbox files used for the project:
+### Dropbox files used for the project:
 - [**`files/`**](https://www.dropbox.com/scl/fo/7ioya39gi8q7yxonv2ey6/AMiAO5f1FqTKBU3MIHP47AU?rlkey=4jp7ujqfyd2y2lz8zuv714771&st=lvvwdwhb&dl=0): A **Dropbox** folder containing all output files generated from the homework tasks. In detail:
   - **[all_restaurants_data.csv](https://www.dropbox.com/scl/fi/b5kopvu3mtrrer51ch43w/all_restaurants_data.csv?rlkey=30u7kxhngucs98q00kijstkkl&st=j0m57lix&dl=0)**: Dataset containing all information about Michelin restaurants in Italy, collected from the Michelin website. This file is the output for **Question 1.3**;
   - **[vocabulary.csv](https://www.dropbox.com/scl/fi/5fdxqt7v5ehaxdaknz8as/vocabulary.csv?rlkey=5mplouit7gngbxu51zezbow00&st=8a6eh3yc&dl=0)**: A CSV file that maps each word in the `description` column of `all_restaurants_data.csv` to a unique integer (`term_id`). This file is the result of **Question 2.1.1**;
