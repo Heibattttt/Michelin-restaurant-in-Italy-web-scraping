@@ -2,7 +2,9 @@
 
 ## Michelin Restaurants in Italy
 ![Michelin Restaurant](https://www.chase.com/content/dam/unified-assets/photography/articles/credit-card/basics/seo_michelin-restaurants-that-deliver_101222.jpg)
+
 This repository contains the solution for **Homework 3** of the course *Algorithmic Methods of Data Mining*.
+
 ---
 The main goal of this homework is to explore and analyze Michelin restaurant data in Italy. The project includes multiple tasks such as data cleaning, feature extraction, text processing and visualization.
 To get all the data that we needed, we did a web scraping process of the [*Michelin restaurants site*](https://guide.michelin.com/en/it/restaurants) and we extracted the html of each restaurant on the page and saved it in a folder called [*HTML Michelin Restaurants*](https://www.dropbox.com/scl/fo/0j7jc0ltldfykhayu7yv5/AMGq46jObUCNfQYPiC58QhA?rlkey=3a94pnup3e443yhjwmu5s88wu&st=xog2xz1h&dl=0).
