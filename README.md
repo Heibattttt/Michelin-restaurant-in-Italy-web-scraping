@@ -22,7 +22,8 @@ To get all the data that we needed, we did a web scraping process of the [*Miche
   - **[vocabulary.csv](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/files/vocabulary.csv)**: A CSV file that maps each word in the `description` column of `all_restaurants_data.csv` to a unique integer (`term_id`). This file is the result of **Question 2.1.1**;
   - **[inverted_index.pkl](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/files/inverted_index.pkl)**: A pickle file containing a dictionary mapping each `term_id` to a list of document IDs where that term appears. This file is the output for **Question 2.1.1**;
   - **[coordinates.csv](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/files/coordinates.csv)**: A CSV file containing all unique city coordinates in the dataset. This file is the output for **Question 4**;
-  - **[top_k_restaurants_map.html](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/raw/main/files/top_k_restaurants_map.html)**: An HTML file displaying the top-k Michelin restaurants based on a custom scoring system, visualized on a map. This is the result for **Question 4**. To     view the map you need to download the html file or view the Notebook file on a development environment such as Visual Studio, Jupyter or Pycharm
+  - **[top_k_restaurants_map.html](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/main/files/top_k_restaurants_map.html)**: An HTML file displaying the top-k Michelin restaurants based on a custom scoring system, visualized on a map. This is the result for **Question 4**. To     view the map you need to download the html file or view the Notebook file on a development environment such as Visual Studio, Jupyter or Pycharm
+  
 
 
 
