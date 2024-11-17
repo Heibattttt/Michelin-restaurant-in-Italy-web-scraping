@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_99949ff2d0c8e7924dfa74373838eec6 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+<div style="
+    position:fixed;
+    top:10px;
+    left:10px;  
+    width:300x;  
+    border:1px solid grey;
+    background-color:white;
+    padding:15px; 
+    z-index:9999;
+    border-radius: 8px;
+">
+    <b style="font-size: 18px;">Price Range Legend</b><br>  
+    <div style="display: flex; align-items: center;">
+        <span style="color:green; font-size: 24px;">●</span>  
+        <span style="margin-left: 5px; font-size: 16px;">€ Economic</span>  
+    </div>
+    <div style="display: flex; align-items: center;">
+        <span style="color:blue; font-size: 24px;">●</span>
+        <span style="margin-left: 5px; font-size: 16px;">€€ Affordable</span>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <span style="color:orange; font-size: 24px;">●</span>
+        <span style="margin-left: 5px; font-size: 16px;">€€€ Expensive</span>
+    </div>
+    <div style="display: flex; align-items: center;">
+        <span style="color:red; font-size: 24px;">●</span>
+        <span style="margin-left: 5px; font-size: 16px;">€€€€ Luxury</span>
+    </div>
+</div>
+    
+            <div class="folium-map" id="map_99949ff2d0c8e7924dfa74373838eec6" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_99949ff2d0c8e7924dfa74373838eec6 = L.map(
+                "map_99949ff2d0c8e7924dfa74373838eec6",
+                {
+                    center: [41.8719, 12.5674],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a2772d68d5092372b0b3867f6c3c8f2a = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_a2772d68d5092372b0b3867f6c3c8f2a.addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var marker_5182cf4e1ae748d009d1a897c9d5e0c9 = L.marker(
+                [41.8933203, 12.4829321],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_a3a92228f1c00eb311c2958538fb1322 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_5182cf4e1ae748d009d1a897c9d5e0c9.setIcon(icon_a3a92228f1c00eb311c2958538fb1322);
+        
+    
+        var popup_e975424a4d25a931fc9eb226e43983d4 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_adc81efc1d33a3e7bf1497277293243c = $(`<div id="html_adc81efc1d33a3e7bf1497277293243c" style="width: 100.0%; height: 100.0%;"><b>Trattoria Pennestri</b> <br>Address:via Giovanni Da Empoli 5 <br>Website:<a href="https://trattoriapennestri.it/" target="_blank">https://trattoriapennestri.it/</a> <br> City:Rome <br> Region:Lazio <br>Custom score: 0.7074</div>`)[0];
+                popup_e975424a4d25a931fc9eb226e43983d4.setContent(html_adc81efc1d33a3e7bf1497277293243c);
+            
+        
+
+        marker_5182cf4e1ae748d009d1a897c9d5e0c9.bindPopup(popup_e975424a4d25a931fc9eb226e43983d4)
+        ;
+
+        
+    
+    
+            var marker_a5d17666c220b7815964f2db67aed909 = L.marker(
+                [45.6118362, 11.5075805],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_0db22d09738b0a44d171f6a60cce4deb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a5d17666c220b7815964f2db67aed909.setIcon(icon_0db22d09738b0a44d171f6a60cce4deb);
+        
+    
+        var popup_c3157d12d759349743838b5aa6e503fe = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_38411f053e7012339d9d41c088a7f404 = $(`<div id="html_38411f053e7012339d9d41c088a7f404" style="width: 100.0%; height: 100.0%;"><b>Molin Vecio</b> <br>Address:via Giaroni 116 <br>Website:<a href="http://www.molinvecio.it" target="_blank">http://www.molinvecio.it</a> <br> City:Caldogno <br> Region:Veneto <br>Custom score: 0.6275</div>`)[0];
+                popup_c3157d12d759349743838b5aa6e503fe.setContent(html_38411f053e7012339d9d41c088a7f404);
+            
+        
+
+        marker_a5d17666c220b7815964f2db67aed909.bindPopup(popup_c3157d12d759349743838b5aa6e503fe)
+        ;
+
+        
+    
+    
+            var marker_2a350fefdc278c42e0ea019d687a9566 = L.marker(
+                [42.0517987, 12.6183967],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_46cd2091867ec28a164b96ccf1bac441 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2a350fefdc278c42e0ea019d687a9566.setIcon(icon_46cd2091867ec28a164b96ccf1bac441);
+        
+    
+        var popup_a6d44b9552244dfb6b7718c5964447c8 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_582015879a3169b85c76fd7e36c64ffb = $(`<div id="html_582015879a3169b85c76fd7e36c64ffb" style="width: 100.0%; height: 100.0%;"><b>Trattoria della Fortuna</b> <br>Address:Via Salaria 57 <br>Website:<a href="http://www.trattoriadellafortuna.it" target="_blank">http://www.trattoriadellafortuna.it</a> <br> City:Monterotondo <br> Region:Lazio <br>Custom score: 0.6008</div>`)[0];
+                popup_a6d44b9552244dfb6b7718c5964447c8.setContent(html_582015879a3169b85c76fd7e36c64ffb);
+            
+        
+
+        marker_2a350fefdc278c42e0ea019d687a9566.bindPopup(popup_a6d44b9552244dfb6b7718c5964447c8)
+        ;
+
+        
+    
+    
+            var marker_80d40f3468b2da1e3f889b96f275de48 = L.marker(
+                [45.5669538, 8.086912],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_9b0d46484ab01ee7cabb76a1e4bd5b51 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_80d40f3468b2da1e3f889b96f275de48.setIcon(icon_9b0d46484ab01ee7cabb76a1e4bd5b51);
+        
+    
+        var popup_404e5b6521b8109211792de594bf88f7 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_4fdbc884131368561f45fff108c71b67 = $(`<div id="html_4fdbc884131368561f45fff108c71b67" style="width: 100.0%; height: 100.0%;"><b>Matteo Ristorante</b> <br>Address:piazza Duomo 6 <br>Website:<a href="https://matteocaffeecucina.it/" target="_blank">https://matteocaffeecucina.it/</a> <br> City:Biella <br> Region:Piedmont <br>Custom score: 0.4422</div>`)[0];
+                popup_404e5b6521b8109211792de594bf88f7.setContent(html_4fdbc884131368561f45fff108c71b67);
+            
+        
+
+        marker_80d40f3468b2da1e3f889b96f275de48.bindPopup(popup_404e5b6521b8109211792de594bf88f7)
+        ;
+
+        
+    
+    
+            var marker_c1894f5a8c9a034539d7efb016aeb0f3 = L.marker(
+                [41.8933203, 12.4829321],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_61c3d82400a586a2f9baf6538462f9b3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c1894f5a8c9a034539d7efb016aeb0f3.setIcon(icon_61c3d82400a586a2f9baf6538462f9b3);
+        
+    
+        var popup_06dd07f2d611be92f092e261b80636f5 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_55acf9f7f878ca23f114a8f5cfcb1941 = $(`<div id="html_55acf9f7f878ca23f114a8f5cfcb1941" style="width: 100.0%; height: 100.0%;"><b>Hosteria Grappolo d'Oro</b> <br>Address:piazza della Cancelleria 80 <br>Website:<a href="https://hosteriagrappolodoro.it/" target="_blank">https://hosteriagrappolodoro.it/</a> <br> City:Rome <br> Region:Lazio <br>Custom score: 0.4032</div>`)[0];
+                popup_06dd07f2d611be92f092e261b80636f5.setContent(html_55acf9f7f878ca23f114a8f5cfcb1941);
+            
+        
+
+        marker_c1894f5a8c9a034539d7efb016aeb0f3.bindPopup(popup_06dd07f2d611be92f092e261b80636f5)
+        ;
+
+        
+    
+    
+            var marker_0a8c0f596f963d30838bee94882bf49c = L.marker(
+                [45.6684018, 8.4734439],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_f2392adbdc046fce5fa482663289f6eb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0a8c0f596f963d30838bee94882bf49c.setIcon(icon_f2392adbdc046fce5fa482663289f6eb);
+        
+    
+        var popup_62da6301533231114aa80e8ec6f3980f = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_8e7d02168a8ac68028ade47472fe8dd9 = $(`<div id="html_8e7d02168a8ac68028ade47472fe8dd9" style="width: 100.0%; height: 100.0%;"><b>La Capuccina</b> <br>Address:via Novara 19/b <br>Website:<a href="https://lacapuccina.it/" target="_blank">https://lacapuccina.it/</a> <br> City:Località capuccina <br> Region:Piedmont <br>Custom score: 0.3667</div>`)[0];
+                popup_62da6301533231114aa80e8ec6f3980f.setContent(html_8e7d02168a8ac68028ade47472fe8dd9);
+            
+        
+
+        marker_0a8c0f596f963d30838bee94882bf49c.bindPopup(popup_62da6301533231114aa80e8ec6f3980f)
+        ;
+
+        
+    
+    
+            var marker_4480fe34696458e05bab315730f64e22 = L.marker(
+                [45.3524418, 8.9548111],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_8df40b5860e67003c0f36b6a98d73ca7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4480fe34696458e05bab315730f64e22.setIcon(icon_8df40b5860e67003c0f36b6a98d73ca7);
+        
+    
+        var popup_b8b72c03794e59571bfe249edaf2c64c = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_13d4ba9f7ceb37fdf3d0ba0024aca7e4 = $(`<div id="html_13d4ba9f7ceb37fdf3d0ba0024aca7e4" style="width: 100.0%; height: 100.0%;"><b>Trattoria di Coronate</b> <br>Address:Cascina Coronate <br>Website:<a href="https://www.trattoriadicoronate.it/" target="_blank">https://www.trattoriadicoronate.it/</a> <br> City:Morimondo <br> Region:Lombardy <br>Custom score: 0.3660</div>`)[0];
+                popup_b8b72c03794e59571bfe249edaf2c64c.setContent(html_13d4ba9f7ceb37fdf3d0ba0024aca7e4);
+            
+        
+
+        marker_4480fe34696458e05bab315730f64e22.bindPopup(popup_b8b72c03794e59571bfe249edaf2c64c)
+        ;
+
+        
+    
+    
+            var marker_aae21e85f5fabc4965ac0dd2576f826c = L.marker(
+                [41.8933203, 12.4829321],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_0b065684a5455af8a125b9fe3fc2a262 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_aae21e85f5fabc4965ac0dd2576f826c.setIcon(icon_0b065684a5455af8a125b9fe3fc2a262);
+        
+    
+        var popup_9808c35af6b705fbceb47b62e346b5b1 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_46bcdbd03391439c85ba3fbacd57336c = $(`<div id="html_46bcdbd03391439c85ba3fbacd57336c" style="width: 100.0%; height: 100.0%;"><b>L'Osteria della Trippa</b> <br>Address:via Goffredo Mameli 15 <br>Website:<a href="http://www.losteriadellatrippa.it" target="_blank">http://www.losteriadellatrippa.it</a> <br> City:Rome <br> Region:Lazio <br>Custom score: 0.3655</div>`)[0];
+                popup_9808c35af6b705fbceb47b62e346b5b1.setContent(html_46bcdbd03391439c85ba3fbacd57336c);
+            
+        
+
+        marker_aae21e85f5fabc4965ac0dd2576f826c.bindPopup(popup_9808c35af6b705fbceb47b62e346b5b1)
+        ;
+
+        
+    
+    
+            var marker_5410e1b1ac027a57402c0efa1cffc0da = L.marker(
+                [44.7835699, 10.8854523],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_bf55007d0d2a4651bd6a70772503a001 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5410e1b1ac027a57402c0efa1cffc0da.setIcon(icon_bf55007d0d2a4651bd6a70772503a001);
+        
+    
+        var popup_98bccdd77e5f0bc3840e5695071dc275 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_b627328c3b5bde42ffe2d55b55e8013c = $(`<div id="html_b627328c3b5bde42ffe2d55b55e8013c" style="width: 100.0%; height: 100.0%;"><b>Momento al 25</b> <br>Address:via San Francesco 20 <br>Website:<a href="https://www.momentoal25.it/" target="_blank">https://www.momentoal25.it/</a> <br> City:Carpi <br> Region:Emilia-Romagna <br>Custom score: 0.3294</div>`)[0];
+                popup_98bccdd77e5f0bc3840e5695071dc275.setContent(html_b627328c3b5bde42ffe2d55b55e8013c);
+            
+        
+
+        marker_5410e1b1ac027a57402c0efa1cffc0da.bindPopup(popup_98bccdd77e5f0bc3840e5695071dc275)
+        ;
+
+        
+    
+    
+            var marker_3974fa03bc0fd906aa73b312bbf50fb1 = L.marker(
+                [41.22626, 9.170205],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_82c99a62c2a571e34476cd0e33c90202 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3974fa03bc0fd906aa73b312bbf50fb1.setIcon(icon_82c99a62c2a571e34476cd0e33c90202);
+        
+    
+        var popup_a6206851220e393b408a5c1ab473065b = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_2942d3e20b3b2e30791a5a475bbd50f3 = $(`<div id="html_2942d3e20b3b2e30791a5a475bbd50f3" style="width: 100.0%; height: 100.0%;"><b>Capogiro</b> <br>Address:Località Li Mucchi Bianchi <br>Website:<a href="https://7pines-sardinia.com/it/ristoranti-bar/capogiro" target="_blank">https://7pines-sardinia.com/it/ristoranti-bar/capogiro</a> <br> City:Baia sardinia <br> Region:Sardinia <br>Custom score: 0.3267</div>`)[0];
+                popup_a6206851220e393b408a5c1ab473065b.setContent(html_2942d3e20b3b2e30791a5a475bbd50f3);
+            
+        
+
+        marker_3974fa03bc0fd906aa73b312bbf50fb1.bindPopup(popup_a6206851220e393b408a5c1ab473065b)
+        ;
+
+        
+    
+    
+            var marker_9f220d8103367585383a3294d4cf3a52 = L.marker(
+                [40.63367, 14.6026095],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_6b9059398568a6ee435ce8d30507791d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_9f220d8103367585383a3294d4cf3a52.setIcon(icon_6b9059398568a6ee435ce8d30507791d);
+        
+    
+        var popup_e2796daa8c22b00dac43da99f2944a3a = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_54e217368057499b0de41bc2acd0e7c4 = $(`<div id="html_54e217368057499b0de41bc2acd0e7c4" style="width: 100.0%; height: 100.0%;"><b>Alici</b> <br>Address:via Giovanni Augustariccio 33 <br>Website:<a href="https://borgosantandrea.it/it/dining/ristorante-alici/" target="_blank">https://borgosantandrea.it/it/dining/ristorante-alici/</a> <br> City:Amalfi <br> Region:Campania <br>Custom score: 0.3131</div>`)[0];
+                popup_e2796daa8c22b00dac43da99f2944a3a.setContent(html_54e217368057499b0de41bc2acd0e7c4);
+            
+        
+
+        marker_9f220d8103367585383a3294d4cf3a52.bindPopup(popup_e2796daa8c22b00dac43da99f2944a3a)
+        ;
+
+        
+    
+    
+            var marker_4546a3d7688f2dfed37d1209fdacaab0 = L.marker(
+                [43.8424173, 13.0146632],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_e0eced5f65a4fc6ad6223071b5852c55 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_4546a3d7688f2dfed37d1209fdacaab0.setIcon(icon_e0eced5f65a4fc6ad6223071b5852c55);
+        
+    
+        var popup_875ab31ed9d29281ee90973ee7accfe8 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_0dc689320a54e810c927a5b1b50d7eb1 = $(`<div id="html_0dc689320a54e810c927a5b1b50d7eb1" style="width: 100.0%; height: 100.0%;"><b>Osteria dalla Peppa</b> <br>Address:via Vecchia 8 <br>Website:<a href="https://www.osteriadallapeppa.it" target="_blank">https://www.osteriadallapeppa.it</a> <br> City:Fano <br> Region:Marche <br>Custom score: 0.3069</div>`)[0];
+                popup_875ab31ed9d29281ee90973ee7accfe8.setContent(html_0dc689320a54e810c927a5b1b50d7eb1);
+            
+        
+
+        marker_4546a3d7688f2dfed37d1209fdacaab0.bindPopup(popup_875ab31ed9d29281ee90973ee7accfe8)
+        ;
+
+        
+    
+    
+            var marker_b8914b5f952fe7d9a2d3ebdaf06bb40f = L.marker(
+                [43.405625, 11.5443441],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_9e71c2b1842099a633b38289d7378b09 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_b8914b5f952fe7d9a2d3ebdaf06bb40f.setIcon(icon_9e71c2b1842099a633b38289d7378b09);
+        
+    
+        var popup_4efff5c93c512191756101ccb34f489e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_e4012791c71d687d8a29a9fde036f150 = $(`<div id="html_e4012791c71d687d8a29a9fde036f150" style="width: 100.0%; height: 100.0%;"><b>Osteria L'Orciaia</b> <br>Address:via Capitan Goro 10 <br>Website:<a href="https://www.osterialorciaia.it/" target="_blank">https://www.osterialorciaia.it/</a> <br> City:Montebenichi <br> Region:Tuscany <br>Custom score: 0.3063</div>`)[0];
+                popup_4efff5c93c512191756101ccb34f489e.setContent(html_e4012791c71d687d8a29a9fde036f150);
+            
+        
+
+        marker_b8914b5f952fe7d9a2d3ebdaf06bb40f.bindPopup(popup_4efff5c93c512191756101ccb34f489e)
+        ;
+
+        
+    
+    
+            var marker_ac8315cd4e38daf2013880b597c15e8c = L.marker(
+                [44.5384728, 10.9359609],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_5d1f73e4379c52926abd4efca3d65ada = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ac8315cd4e38daf2013880b597c15e8c.setIcon(icon_5d1f73e4379c52926abd4efca3d65ada);
+        
+    
+        var popup_3f5cd3c99cee4b59ea7dc3f726c6c989 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_ee4e051e0eed047b1f43f4dc8c507cd0 = $(`<div id="html_ee4e051e0eed047b1f43f4dc8c507cd0" style="width: 100.0%; height: 100.0%;"><b>Franceschetta 58</b> <br>Address:strada Vignolese 58 <br>Website:<a href="http://www.franceschetta.it" target="_blank">http://www.franceschetta.it</a> <br> City:Modena <br> Region:Emilia-Romagna <br>Custom score: 0.2988</div>`)[0];
+                popup_3f5cd3c99cee4b59ea7dc3f726c6c989.setContent(html_ee4e051e0eed047b1f43f4dc8c507cd0);
+            
+        
+
+        marker_ac8315cd4e38daf2013880b597c15e8c.bindPopup(popup_3f5cd3c99cee4b59ea7dc3f726c6c989)
+        ;
+
+        
+    
+    
+            var marker_64b70c3aba8ca882d0dd9c1a278639e2 = L.marker(
+                [46.1029536, 11.1297425],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_0befdace7cfdcf7df129742e0511182c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_64b70c3aba8ca882d0dd9c1a278639e2.setIcon(icon_0befdace7cfdcf7df129742e0511182c);
+        
+    
+        var popup_906be367210d95035e419a8580d24ba5 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_d37dc1aa74e928f49e78d9c85e3d3e79 = $(`<div id="html_d37dc1aa74e928f49e78d9c85e3d3e79" style="width: 100.0%; height: 100.0%;"><b>Scrigno del Duomo</b> <br>Address:piazza Duomo 29 <br>Website:<a href="https://www.scrignodelduomo.com/" target="_blank">https://www.scrignodelduomo.com/</a> <br> City:Trento <br> Region:Trentino-South Tyrol <br>Custom score: 0.2914</div>`)[0];
+                popup_906be367210d95035e419a8580d24ba5.setContent(html_d37dc1aa74e928f49e78d9c85e3d3e79);
+            
+        
+
+        marker_64b70c3aba8ca882d0dd9c1a278639e2.bindPopup(popup_906be367210d95035e419a8580d24ba5)
+        ;
+
+        
+    
+    
+            var marker_ba96d086f1ae823b1d52a6695849b197 = L.marker(
+                [40.1184626, 18.2988529],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_1dd723c804ac83872a0616d561ca2f98 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ba96d086f1ae823b1d52a6695849b197.setIcon(icon_1dd723c804ac83872a0616d561ca2f98);
+        
+    
+        var popup_76f29e7e54309959a0e6da1c5830b15e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_4e830754b8927a8974b0f85e7f4888db = $(`<div id="html_4e830754b8927a8974b0f85e7f4888db" style="width: 100.0%; height: 100.0%;"><b>Bel Ami</b> <br>Address:via Roma 86 <br>Website:<a href="https://www.hotelbelami.it/" target="_blank">https://www.hotelbelami.it/</a> <br> City:Maglie <br> Region:Apulia <br>Custom score: 0.2902</div>`)[0];
+                popup_76f29e7e54309959a0e6da1c5830b15e.setContent(html_4e830754b8927a8974b0f85e7f4888db);
+            
+        
+
+        marker_ba96d086f1ae823b1d52a6695849b197.bindPopup(popup_76f29e7e54309959a0e6da1c5830b15e)
+        ;
+
+        
+    
+    
+            var marker_b429a4a5c2ff37f9503592bb9e0545d4 = L.marker(
+                [46.8119803, 11.8840064],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_2444b05ddf4153f7a23d01f96c2a5acc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b429a4a5c2ff37f9503592bb9e0545d4.setIcon(icon_2444b05ddf4153f7a23d01f96c2a5acc);
+        
+    
+        var popup_bd433d7c38d9f84a42d9c120c6a44442 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_478a8f34e9f28e4973c1268b62297a1e = $(`<div id="html_478a8f34e9f28e4973c1268b62297a1e" style="width: 100.0%; height: 100.0%;"><b>Sichelburg</b> <br>Address:via Castello 1a <br>Website:<a href="https://www.sichelburg.it/it/ristorante-alto-adige/" target="_blank">https://www.sichelburg.it/it/ristorante-alto-adige/</a> <br> City:Pfalzen <br> Region:Trentino-South Tyrol <br>Custom score: 0.2866</div>`)[0];
+                popup_bd433d7c38d9f84a42d9c120c6a44442.setContent(html_478a8f34e9f28e4973c1268b62297a1e);
+            
+        
+
+        marker_b429a4a5c2ff37f9503592bb9e0545d4.bindPopup(popup_bd433d7c38d9f84a42d9c120c6a44442)
+        ;
+
+        
+    
+    
+            var marker_57b9fdb3f55a51a77b147e9d9da2c185 = L.marker(
+                [40.961323, 15.814863],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_82be5c2c8026be37b012e9a3dc654fad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_57b9fdb3f55a51a77b147e9d9da2c185.setIcon(icon_82be5c2c8026be37b012e9a3dc654fad);
+        
+    
+        var popup_33e7473f75e9876ff57a3da604c985da = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_bf09f7e7ad33b95abe827c7cdb733a29 = $(`<div id="html_bf09f7e7ad33b95abe827c7cdb733a29" style="width: 100.0%; height: 100.0%;"><b>Al Baliaggio</b> <br>Address:via Vittorio Emanuele II 136 <br>Website:<a href="https://www.albaliaggio.it/" target="_blank">https://www.albaliaggio.it/</a> <br> City:Venosa <br> Region:Basilicata <br>Custom score: 0.2866</div>`)[0];
+                popup_33e7473f75e9876ff57a3da604c985da.setContent(html_bf09f7e7ad33b95abe827c7cdb733a29);
+            
+        
+
+        marker_57b9fdb3f55a51a77b147e9d9da2c185.bindPopup(popup_33e7473f75e9876ff57a3da604c985da)
+        ;
+
+        
+    
+    
+            var marker_029cd9868b9a9e42028999cf0bc4b5e4 = L.marker(
+                [42.7342971, 12.7382035],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_646a533390446252ec35c92b9a475dfe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_029cd9868b9a9e42028999cf0bc4b5e4.setIcon(icon_646a533390446252ec35c92b9a475dfe);
+        
+    
+        var popup_35255db1d0ca043a638fc8fabac066fb = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_603eed0ac2dfa3509fdc83e297af6d96 = $(`<div id="html_603eed0ac2dfa3509fdc83e297af6d96" style="width: 100.0%; height: 100.0%;"><b>Apollinare</b> <br>Address:via Sant'Agata 14 <br>Website:<a href="https://www.ristoranteapollinare.it/" target="_blank">https://www.ristoranteapollinare.it/</a> <br> City:Spoleto <br> Region:Umbria <br>Custom score: 0.2860</div>`)[0];
+                popup_35255db1d0ca043a638fc8fabac066fb.setContent(html_603eed0ac2dfa3509fdc83e297af6d96);
+            
+        
+
+        marker_029cd9868b9a9e42028999cf0bc4b5e4.bindPopup(popup_35255db1d0ca043a638fc8fabac066fb)
+        ;
+
+        
+    
+    
+            var marker_822fb06080e81ecb6d02fed308511fbe = L.marker(
+                [41.8933203, 12.4829321],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_4afae65dfce75b20eeb75a70f3658729 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_822fb06080e81ecb6d02fed308511fbe.setIcon(icon_4afae65dfce75b20eeb75a70f3658729);
+        
+    
+        var popup_59ab5fe8e7ed840d6c1a1aa27cc14789 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_f45c826b9ac2df697aa8b3cc9dface17 = $(`<div id="html_f45c826b9ac2df697aa8b3cc9dface17" style="width: 100.0%; height: 100.0%;"><b>53 Untitled</b> <br>Address:via del Monte della Farina 53 <br>Website:<a href="http://www.untitledrestaurant.com" target="_blank">http://www.untitledrestaurant.com</a> <br> City:Rome <br> Region:Lazio <br>Custom score: 0.2666</div>`)[0];
+                popup_59ab5fe8e7ed840d6c1a1aa27cc14789.setContent(html_f45c826b9ac2df697aa8b3cc9dface17);
+            
+        
+
+        marker_822fb06080e81ecb6d02fed308511fbe.bindPopup(popup_59ab5fe8e7ed840d6c1a1aa27cc14789)
+        ;
+
+        
+    
+    
+            var marker_43d4ca34ed30d76abcaa82255e864c3b = L.marker(
+                [45.846282, 9.358244],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_4c729d1f07ce0baccde4036e8e397dc4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_43d4ca34ed30d76abcaa82255e864c3b.setIcon(icon_4c729d1f07ce0baccde4036e8e397dc4);
+        
+    
+        var popup_f701c0c8836087bf021a8d0ea031a051 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_170a10f7c53bc85848aea28bdff280e9 = $(`<div id="html_170a10f7c53bc85848aea28bdff280e9" style="width: 100.0%; height: 100.0%;"><b>Villa Giulia - Al Terrazzo</b> <br>Address:via Parè 73 <br>Website:<a href="https://www.villagiulia-alterrazzo.com" target="_blank">https://www.villagiulia-alterrazzo.com</a> <br> City:Valmadrera <br> Region:Lombardy <br>Custom score: 0.2660</div>`)[0];
+                popup_f701c0c8836087bf021a8d0ea031a051.setContent(html_170a10f7c53bc85848aea28bdff280e9);
+            
+        
+
+        marker_43d4ca34ed30d76abcaa82255e864c3b.bindPopup(popup_f701c0c8836087bf021a8d0ea031a051)
+        ;
+
+        
+    
+    
+            var marker_e3af9e069532b8ab985d905c364fe61b = L.marker(
+                [45.1762691, 10.3129568],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_53f0c538bef1350a6eaa7e481eb3ee2b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e3af9e069532b8ab985d905c364fe61b.setIcon(icon_53f0c538bef1350a6eaa7e481eb3ee2b);
+        
+    
+        var popup_bca520c56210b7695e88260c6dd5d79e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_b63532b0d1b11285fc8188c91bad3b70 = $(`<div id="html_b63532b0d1b11285fc8188c91bad3b70" style="width: 100.0%; height: 100.0%;"><b>Caffè La Crepa</b> <br>Address:piazza Matteotti 14 <br>Website:<a href="http://www.caffelacrepa.it" target="_blank">http://www.caffelacrepa.it</a> <br> City:Isola dovarese <br> Region:Lombardy <br>Custom score: 0.2502</div>`)[0];
+                popup_bca520c56210b7695e88260c6dd5d79e.setContent(html_b63532b0d1b11285fc8188c91bad3b70);
+            
+        
+
+        marker_e3af9e069532b8ab985d905c364fe61b.bindPopup(popup_bca520c56210b7695e88260c6dd5d79e)
+        ;
+
+        
+    
+    
+            var marker_9eb3f20c1b81406fd62d3ee35b28994a = L.marker(
+                [45.4826245, 9.3271701],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_563afa8ebd3d9ab705ce9a1c1b9902e6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9eb3f20c1b81406fd62d3ee35b28994a.setIcon(icon_563afa8ebd3d9ab705ce9a1c1b9902e6);
+        
+    
+        var popup_ac58901bd9498d4a949522d238639335 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_deaa3384e2246eef9f0c5f674a0605f6 = $(`<div id="html_deaa3384e2246eef9f0c5f674a0605f6" style="width: 100.0%; height: 100.0%;"><b>Antico Albergo</b> <br>Address:via Dante Alighieri 18 <br>Website:<a href="https://www.anticoalbergo.it" target="_blank">https://www.anticoalbergo.it</a> <br> City:Limito <br> Region:Lombardy <br>Custom score: 0.2478</div>`)[0];
+                popup_ac58901bd9498d4a949522d238639335.setContent(html_deaa3384e2246eef9f0c5f674a0605f6);
+            
+        
+
+        marker_9eb3f20c1b81406fd62d3ee35b28994a.bindPopup(popup_ac58901bd9498d4a949522d238639335)
+        ;
+
+        
+    
+    
+            var marker_14fd1cdecf52006960f2c83293803155 = L.marker(
+                [43.6702986, 10.7608316],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_3aa461d4be60a2f255f93c7c4089fbb5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_14fd1cdecf52006960f2c83293803155.setIcon(icon_3aa461d4be60a2f255f93c7c4089fbb5);
+        
+    
+        var popup_f63ce48211be78772dc260b3835642c7 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_4c2e792cdc0ad124c8ef48b273ebd17b = $(`<div id="html_4c2e792cdc0ad124c8ef48b273ebd17b" style="width: 100.0%; height: 100.0%;"><b>Quattro Gigli</b> <br>Address:piazza Michele da Montopoli 2 <br>Website:<a href="https://www.quattrogigli.it/" target="_blank">https://www.quattrogigli.it/</a> <br> City:Montopoli in val d'arno <br> Region:Tuscany <br>Custom score: 0.2476</div>`)[0];
+                popup_f63ce48211be78772dc260b3835642c7.setContent(html_4c2e792cdc0ad124c8ef48b273ebd17b);
+            
+        
+
+        marker_14fd1cdecf52006960f2c83293803155.bindPopup(popup_f63ce48211be78772dc260b3835642c7)
+        ;
+
+        
+    
+    
+            var marker_4eda6f2ff88f22e951d75c5a9db2fdd9 = L.marker(
+                [44.5307822, 7.9472329],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_1361127f4e1c980d099067501cec5818 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4eda6f2ff88f22e951d75c5a9db2fdd9.setIcon(icon_1361127f4e1c980d099067501cec5818);
+        
+    
+        var popup_1e0048f195cfe3208c4fc17e33169cb9 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_99df4bf9469a425a9b96f1b9133c2334 = $(`<div id="html_99df4bf9469a425a9b96f1b9133c2334" style="width: 100.0%; height: 100.0%;"><b>Il Verso del Ghiottone</b> <br>Address:via Demagistris 5 <br>Website:<a href="https://www.ilversodelghiottone.it" target="_blank">https://www.ilversodelghiottone.it</a> <br> City:Dogliani <br> Region:Piedmont <br>Custom score: 0.2475</div>`)[0];
+                popup_1e0048f195cfe3208c4fc17e33169cb9.setContent(html_99df4bf9469a425a9b96f1b9133c2334);
+            
+        
+
+        marker_4eda6f2ff88f22e951d75c5a9db2fdd9.bindPopup(popup_1e0048f195cfe3208c4fc17e33169cb9)
+        ;
+
+        
+    
+    
+            var marker_276154052c6eab3ece6287e257ccc4b0 = L.marker(
+                [45.7874248, 6.9730618],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_6681b88f94ef1f040a9829b5f55c16ed = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_276154052c6eab3ece6287e257ccc4b0.setIcon(icon_6681b88f94ef1f040a9829b5f55c16ed);
+        
+    
+        var popup_63a5da06e29e323a3a29f46cccff9f19 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_62dfd7a85ed67e8a5ba04029b9c0ddfc = $(`<div id="html_62dfd7a85ed67e8a5ba04029b9c0ddfc" style="width: 100.0%; height: 100.0%;"><b>Le Bistrot</b> <br>Address:via Roma 87 <br>Website:<a href="https://www.hotelroyalegolf.com/" target="_blank">https://www.hotelroyalegolf.com/</a> <br> City:Courmayeur <br> Region:Aosta Valley <br>Custom score: 0.2469</div>`)[0];
+                popup_63a5da06e29e323a3a29f46cccff9f19.setContent(html_62dfd7a85ed67e8a5ba04029b9c0ddfc);
+            
+        
+
+        marker_276154052c6eab3ece6287e257ccc4b0.bindPopup(popup_63a5da06e29e323a3a29f46cccff9f19)
+        ;
+
+        
+    
+    
+            var marker_3e2914683b1967fd3b2eac5952fecd43 = L.marker(
+                [46.4653657, 12.7087174],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_22284e534153f4576cb07f0b9669279e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_3e2914683b1967fd3b2eac5952fecd43.setIcon(icon_22284e534153f4576cb07f0b9669279e);
+        
+    
+        var popup_d04ad72ac439bb62b235f90c878def4e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_84526627cac7c3ba89466a02bf0fe3b3 = $(`<div id="html_84526627cac7c3ba89466a02bf0fe3b3" style="width: 100.0%; height: 100.0%;"><b>Alla Pace</b> <br>Address:via Sauris di Sotto 38 <br>Website:<a href="https://www.ristoranteallapace.it/" target="_blank">https://www.ristoranteallapace.it/</a> <br> City:Sauris <br> Region:Friuli-Venezia Giulia <br>Custom score: 0.2461</div>`)[0];
+                popup_d04ad72ac439bb62b235f90c878def4e.setContent(html_84526627cac7c3ba89466a02bf0fe3b3);
+            
+        
+
+        marker_3e2914683b1967fd3b2eac5952fecd43.bindPopup(popup_d04ad72ac439bb62b235f90c878def4e)
+        ;
+
+        
+    
+    
+            var marker_8f24081f6532649f8ca83bf8a0a39816 = L.marker(
+                [44.3900282, 7.8204718],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_e303045b0f4f36754c7403cefe12836b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8f24081f6532649f8ca83bf8a0a39816.setIcon(icon_e303045b0f4f36754c7403cefe12836b);
+        
+    
+        var popup_db51fefec4073cc5288cfec1a9fd3dcc = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_a6208850a60c832647859f39829db87b = $(`<div id="html_a6208850a60c832647859f39829db87b" style="width: 100.0%; height: 100.0%;"><b>Osteria Bertaina</b> <br>Address:piazza Maggiore 6 <br>Website:<a href="https://osteriabertaina.it/" target="_blank">https://osteriabertaina.it/</a> <br> City:Mondovì <br> Region:Piedmont <br>Custom score: 0.2459</div>`)[0];
+                popup_db51fefec4073cc5288cfec1a9fd3dcc.setContent(html_a6208850a60c832647859f39829db87b);
+            
+        
+
+        marker_8f24081f6532649f8ca83bf8a0a39816.bindPopup(popup_db51fefec4073cc5288cfec1a9fd3dcc)
+        ;
+
+        
+    
+    
+            var marker_e85a77cbc63f5e046b7d95111b723e44 = L.marker(
+                [46.211, 7.4385],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_ce74990c79d9100f953dde791e157a2f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_e85a77cbc63f5e046b7d95111b723e44.setIcon(icon_ce74990c79d9100f953dde791e157a2f);
+        
+    
+        var popup_816bd7df462ea37d8a322e409dfa1488 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_189578b63347bf1e7c3b38feeea58b03 = $(`<div id="html_189578b63347bf1e7c3b38feeea58b03" style="width: 100.0%; height: 100.0%;"><b>Glam Enrico Bartolini</b> <br>Address:calle Tron <br>Website:<a href="https://www.enricobartolini.net/ristorante-glam-venezia" target="_blank">https://www.enricobartolini.net/ristorante-glam-venezia</a> <br> City:Sestiere santa croce 1961 <br> Region:Veneto <br>Custom score: 0.2364</div>`)[0];
+                popup_816bd7df462ea37d8a322e409dfa1488.setContent(html_189578b63347bf1e7c3b38feeea58b03);
+            
+        
+
+        marker_e85a77cbc63f5e046b7d95111b723e44.bindPopup(popup_816bd7df462ea37d8a322e409dfa1488)
+        ;
+
+        
+    
+    
+            var marker_47662d5760b8f7548cd78818c08b699b = L.marker(
+                [45.5813147, 10.2102711],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_9ab011c56c174ddba2fa3d79163c2a3f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_47662d5760b8f7548cd78818c08b699b.setIcon(icon_9ab011c56c174ddba2fa3d79163c2a3f);
+        
+    
+        var popup_45e9b09c8dd8fc3696e62d5bee1aaa84 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_e4537fe5587ddf96cb1ca0c599ffd800 = $(`<div id="html_e4537fe5587ddf96cb1ca0c599ffd800" style="width: 100.0%; height: 100.0%;"><b>Carlo Magno</b> <br>Address:via Campiani 9 <br>Website:<a href="https://carlomagno.it/" target="_blank">https://carlomagno.it/</a> <br> City:Collebeato <br> Region:Lombardy <br>Custom score: 0.2303</div>`)[0];
+                popup_45e9b09c8dd8fc3696e62d5bee1aaa84.setContent(html_e4537fe5587ddf96cb1ca0c599ffd800);
+            
+        
+
+        marker_47662d5760b8f7548cd78818c08b699b.bindPopup(popup_45e9b09c8dd8fc3696e62d5bee1aaa84)
+        ;
+
+        
+    
+    
+            var marker_8fc35ef3996807a61b08d7e1d841c1e9 = L.marker(
+                [45.4424977, 10.9857377],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_1d6a0c6353a5ebf6ae2a994ac090a77c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_8fc35ef3996807a61b08d7e1d841c1e9.setIcon(icon_1d6a0c6353a5ebf6ae2a994ac090a77c);
+        
+    
+        var popup_df2e6fc8541e400507d300305b6f24de = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_0db8494c0a5923c5cba7ce50fafdfe64 = $(`<div id="html_0db8494c0a5923c5cba7ce50fafdfe64" style="width: 100.0%; height: 100.0%;"><b>Casa Perbellini 12 Apostoli</b> <br>Address:vicolo Corticella San Marco 3 <br>Website:<a href="http://www.casaperbellini.com" target="_blank">http://www.casaperbellini.com</a> <br> City:Verona <br> Region:Veneto <br>Custom score: 0.2291</div>`)[0];
+                popup_df2e6fc8541e400507d300305b6f24de.setContent(html_0db8494c0a5923c5cba7ce50fafdfe64);
+            
+        
+
+        marker_8fc35ef3996807a61b08d7e1d841c1e9.bindPopup(popup_df2e6fc8541e400507d300305b6f24de)
+        ;
+
+        
+    
+    
+            var marker_53b141e189b589fe704f82f001707a85 = L.marker(
+                [42.4093586, 12.7665388],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_d7372504289173b6019edfa854c11d86 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_53b141e189b589fe704f82f001707a85.setIcon(icon_d7372504289173b6019edfa854c11d86);
+        
+    
+        var popup_c432773ff5ad9bb643c6e80296cccc05 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_a0847e178e5fd218dc5ba90301b9a35e = $(`<div id="html_a0847e178e5fd218dc5ba90301b9a35e" style="width: 100.0%; height: 100.0%;"><b>Delicato</b> <br>Address:via Umberto I 2 <br>Website:<a href="https://www.ristorantedelicato.it" target="_blank">https://www.ristorantedelicato.it</a> <br> City:Contigliano <br> Region:Lazio <br>Custom score: 0.2176</div>`)[0];
+                popup_c432773ff5ad9bb643c6e80296cccc05.setContent(html_a0847e178e5fd218dc5ba90301b9a35e);
+            
+        
+
+        marker_53b141e189b589fe704f82f001707a85.bindPopup(popup_c432773ff5ad9bb643c6e80296cccc05)
+        ;
+
+        
+    
+    
+            var marker_f5d5ee3b9dd828f3de1f952cd104ad46 = L.marker(
+                [44.8260126, 8.2026863],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_a6f8b297000f0fe1aeebaac37b14e02b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f5d5ee3b9dd828f3de1f952cd104ad46.setIcon(icon_a6f8b297000f0fe1aeebaac37b14e02b);
+        
+    
+        var popup_85f178fb1cfabb8530aaf3ca3fff83b0 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_983ecf77b5e0ded7ff8486f056960af2 = $(`<div id="html_983ecf77b5e0ded7ff8486f056960af2" style="width: 100.0%; height: 100.0%;"><b>Il Cavallo Scosso</b> <br>Address:via al Duca 23/d <br>Website:<a href="https://www.ilcavalloscosso.it/" target="_blank">https://www.ilcavalloscosso.it/</a> <br> City:Asti <br> Region:Piedmont <br>Custom score: 0.2098</div>`)[0];
+                popup_85f178fb1cfabb8530aaf3ca3fff83b0.setContent(html_983ecf77b5e0ded7ff8486f056960af2);
+            
+        
+
+        marker_f5d5ee3b9dd828f3de1f952cd104ad46.bindPopup(popup_85f178fb1cfabb8530aaf3ca3fff83b0)
+        ;
+
+        
+    
+    
+            var marker_74db6b7713f7446b5c0871387323d4fd = L.marker(
+                [42.9525328, 13.8807144],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_9b24ccf63f937cc8cebdf3bb1eff7681 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_74db6b7713f7446b5c0871387323d4fd.setIcon(icon_9b24ccf63f937cc8cebdf3bb1eff7681);
+        
+    
+        var popup_957f76a736c80a6810918bc4614c5b0a = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_77e61c48aa3838aba903ebd76a47fe29 = $(`<div id="html_77e61c48aa3838aba903ebd76a47fe29" style="width: 100.0%; height: 100.0%;"><b>Degusteria del Gigante</b> <br>Address:via degli Anelli 19 <br>Website:<a href="https://www.degusteriadelgigante.it/" target="_blank">https://www.degusteriadelgigante.it/</a> <br> City:San benedetto del tronto <br> Region:Marche <br>Custom score: 0.2076</div>`)[0];
+                popup_957f76a736c80a6810918bc4614c5b0a.setContent(html_77e61c48aa3838aba903ebd76a47fe29);
+            
+        
+
+        marker_74db6b7713f7446b5c0871387323d4fd.bindPopup(popup_957f76a736c80a6810918bc4614c5b0a)
+        ;
+
+        
+    
+    
+            var marker_4247ddb2a39ccc5652058a5fb004a591 = L.marker(
+                [41.8933203, 12.4829321],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_e6991e1ba8d9612081401aeed07aed25 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_4247ddb2a39ccc5652058a5fb004a591.setIcon(icon_e6991e1ba8d9612081401aeed07aed25);
+        
+    
+        var popup_7408eccf9fd5a6612674d64ab9ef068f = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_74d08a5fa405525791a6265f539fe02c = $(`<div id="html_74d08a5fa405525791a6265f539fe02c" style="width: 100.0%; height: 100.0%;"><b>Adelaide</b> <br>Address:via dell'Arancio 69 <br>Website:<a href="https://www.hotelvilon.com/it/10/ristorante/" target="_blank">https://www.hotelvilon.com/it/10/ristorante/</a> <br> City:Rome <br> Region:Lazio <br>Custom score: 0.2034</div>`)[0];
+                popup_7408eccf9fd5a6612674d64ab9ef068f.setContent(html_74d08a5fa405525791a6265f539fe02c);
+            
+        
+
+        marker_4247ddb2a39ccc5652058a5fb004a591.bindPopup(popup_7408eccf9fd5a6612674d64ab9ef068f)
+        ;
+
+        
+    
+    
+            var marker_d7b05b740e0950f56cf503ecc8d54942 = L.marker(
+                [46.8160801, 11.8625462],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_6b8ec7ccff40ac3264819a44aa2cedb6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_d7b05b740e0950f56cf503ecc8d54942.setIcon(icon_6b8ec7ccff40ac3264819a44aa2cedb6);
+        
+    
+        var popup_1885c6206662ad098d1ce10225760a27 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_1bde3fdd6df8440dcf9e770247724ec7 = $(`<div id="html_1bde3fdd6df8440dcf9e770247724ec7" style="width: 100.0%; height: 100.0%;"><b>Tanzer</b> <br>Address:via del Paese 1 <br>Website:<a href="https://www.tanzer.it/" target="_blank">https://www.tanzer.it/</a> <br> City:Issengo <br> Region:Trentino-South Tyrol <br>Custom score: 0.1922</div>`)[0];
+                popup_1885c6206662ad098d1ce10225760a27.setContent(html_1bde3fdd6df8440dcf9e770247724ec7);
+            
+        
+
+        marker_d7b05b740e0950f56cf503ecc8d54942.bindPopup(popup_1885c6206662ad098d1ce10225760a27)
+        ;
+
+        
+    
+    
+            var marker_112274679b1422452e9eb77c505ebcac = L.marker(
+                [45.7795804, 10.425873],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_195592127e143f9c7124b8702775553b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_112274679b1422452e9eb77c505ebcac.setIcon(icon_195592127e143f9c7124b8702775553b);
+        
+    
+        var popup_8cb0ed68e16e3acb117c8440b6d0b988 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_09648e4dfa97484a5808ae888375a3c8 = $(`<div id="html_09648e4dfa97484a5808ae888375a3c8" style="width: 100.0%; height: 100.0%;"><b>La Sosta</b> <br>Address:via San Martino della Battaglia 20 <br>Website:<a href="https://www.lasosta.it/" target="_blank">https://www.lasosta.it/</a> <br> City:Brescia <br> Region:Lombardy <br>Custom score: 0.1887</div>`)[0];
+                popup_8cb0ed68e16e3acb117c8440b6d0b988.setContent(html_09648e4dfa97484a5808ae888375a3c8);
+            
+        
+
+        marker_112274679b1422452e9eb77c505ebcac.bindPopup(popup_8cb0ed68e16e3acb117c8440b6d0b988)
+        ;
+
+        
+    
+    
+            var marker_1392e58862a15f98997326b950d18d86 = L.marker(
+                [46.6346188, 11.146564],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_b23ca40aaf9acf426b32f9ee2891a8a6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_1392e58862a15f98997326b950d18d86.setIcon(icon_b23ca40aaf9acf426b32f9ee2891a8a6);
+        
+    
+        var popup_bf891efbe33e17f8b6cde6dd2d3e472d = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_d55494d77bc3cc82d970d309ccbfd21c = $(`<div id="html_d55494d77bc3cc82d970d309ccbfd21c" style="width: 100.0%; height: 100.0%;"><b>Miil</b> <br>Address:via Palade 1 <br>Website:<a href="https://www.miil.it/it/home/" target="_blank">https://www.miil.it/it/home/</a> <br> City:Cermes <br> Region:Trentino-South Tyrol <br>Custom score: 0.1862</div>`)[0];
+                popup_bf891efbe33e17f8b6cde6dd2d3e472d.setContent(html_d55494d77bc3cc82d970d309ccbfd21c);
+            
+        
+
+        marker_1392e58862a15f98997326b950d18d86.bindPopup(popup_bf891efbe33e17f8b6cde6dd2d3e472d)
+        ;
+
+        
+    
+    
+            var marker_2a7914a12db45f53621092c7f656d4c6 = L.marker(
+                [45.4059696, 10.6313729],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_5cd9aa2551bfb9cf55e564f9c2462924 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_2a7914a12db45f53621092c7f656d4c6.setIcon(icon_5cd9aa2551bfb9cf55e564f9c2462924);
+        
+    
+        var popup_311ea0e55d2bff108fde407187c5e568 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_dcd7491d8977cb32b52fc9c4ca430580 = $(`<div id="html_dcd7491d8977cb32b52fc9c4ca430580" style="width: 100.0%; height: 100.0%;"><b>Moscatello Muliner</b> <br>Address:località Moscatello 3/5 <br>Website:<a href="https://it.agriturismomoscatello.it/muliner-restaurant" target="_blank">https://it.agriturismomoscatello.it/muliner-restaurant</a> <br> City:Pozzolengo <br> Region:Lombardy <br>Custom score: 0.1862</div>`)[0];
+                popup_311ea0e55d2bff108fde407187c5e568.setContent(html_dcd7491d8977cb32b52fc9c4ca430580);
+            
+        
+
+        marker_2a7914a12db45f53621092c7f656d4c6.bindPopup(popup_311ea0e55d2bff108fde407187c5e568)
+        ;
+
+        
+    
+    
+            var marker_f74b4da3b3b3bc5d50747a638ec82685 = L.marker(
+                [45.7962374, 11.7583907],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_de98a95651f60684b600398279da14cc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_f74b4da3b3b3bc5d50747a638ec82685.setIcon(icon_de98a95651f60684b600398279da14cc);
+        
+    
+        var popup_31d178dc1ce81df088ba1bda70c98d07 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_708b0610b61ccc143f62ddf383bcdcff = $(`<div id="html_708b0610b61ccc143f62ddf383bcdcff" style="width: 100.0%; height: 100.0%;"><b>Ca' Apollonio Gourmet</b> <br>Address:via Molinetto 5/a <br>Website:<a href="http://www.caapollonio.com" target="_blank">http://www.caapollonio.com</a> <br> City:Romano d'ezzelino <br> Region:Veneto <br>Custom score: 0.1674</div>`)[0];
+                popup_31d178dc1ce81df088ba1bda70c98d07.setContent(html_708b0610b61ccc143f62ddf383bcdcff);
+            
+        
+
+        marker_f74b4da3b3b3bc5d50747a638ec82685.bindPopup(popup_31d178dc1ce81df088ba1bda70c98d07)
+        ;
+
+        
+    
+    
+            var marker_e823da2febeb0ebf17cee45584b557de = L.marker(
+                [45.0373877, 8.3675266],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_7ec9d674aa35514fda99424cb337ae25 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e823da2febeb0ebf17cee45584b557de.setIcon(icon_7ec9d674aa35514fda99424cb337ae25);
+        
+    
+        var popup_5bf5de1375b1467ec8d35178a1d05dc2 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_0cc866e0b4486a7f7531e8454a5bf8a2 = $(`<div id="html_0cc866e0b4486a7f7531e8454a5bf8a2" style="width: 100.0%; height: 100.0%;"><b>I Due Buoi</b> <br>Address:via Vittorio Veneto 23 <br>Website:<a href="https://www.iduebuoi.it" target="_blank">https://www.iduebuoi.it</a> <br> City:Olivola <br> Region:Piedmont <br>Custom score: 0.1670</div>`)[0];
+                popup_5bf5de1375b1467ec8d35178a1d05dc2.setContent(html_0cc866e0b4486a7f7531e8454a5bf8a2);
+            
+        
+
+        marker_e823da2febeb0ebf17cee45584b557de.bindPopup(popup_5bf5de1375b1467ec8d35178a1d05dc2)
+        ;
+
+        
+    
+    
+            var marker_7dcce26dcaa1f5a79ceab6c27339d4c0 = L.marker(
+                [44.4938203, 11.3426327],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_e7a61b03fdedfd3027c2a5c870614f12 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_7dcce26dcaa1f5a79ceab6c27339d4c0.setIcon(icon_e7a61b03fdedfd3027c2a5c870614f12);
+        
+    
+        var popup_59804ddff7e7c97b0517ec6aff50a1d6 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_c15996b8248a0a5a69cb6f3e97ac284d = $(`<div id="html_c15996b8248a0a5a69cb6f3e97ac284d" style="width: 100.0%; height: 100.0%;"><b>I Portici</b> <br>Address:via dell'Indipendenza 69 <br>Website:<a href="https://www.iporticihotel.com/" target="_blank">https://www.iporticihotel.com/</a> <br> City:Bologna <br> Region:Emilia-Romagna <br>Custom score: 0.1664</div>`)[0];
+                popup_59804ddff7e7c97b0517ec6aff50a1d6.setContent(html_c15996b8248a0a5a69cb6f3e97ac284d);
+            
+        
+
+        marker_7dcce26dcaa1f5a79ceab6c27339d4c0.bindPopup(popup_59804ddff7e7c97b0517ec6aff50a1d6)
+        ;
+
+        
+    
+    
+            var marker_dc1658d714d762fa757aaa26e0ce83ab = L.marker(
+                [45.0677551, 7.6824892],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_b2851032f233228005dd525b20a35d12 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_dc1658d714d762fa757aaa26e0ce83ab.setIcon(icon_b2851032f233228005dd525b20a35d12);
+        
+    
+        var popup_466411d7e2cd7108a0bec49b7c528eb5 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_6c990158cbe39a5cd65509baae64a8f3 = $(`<div id="html_6c990158cbe39a5cd65509baae64a8f3" style="width: 100.0%; height: 100.0%;"><b>Vintage 1997</b> <br>Address:piazza Solferino 16/h <br>Website:<a href="https://www.vintage1997.com/" target="_blank">https://www.vintage1997.com/</a> <br> City:Turin <br> Region:Piedmont <br>Custom score: 0.1423</div>`)[0];
+                popup_466411d7e2cd7108a0bec49b7c528eb5.setContent(html_6c990158cbe39a5cd65509baae64a8f3);
+            
+        
+
+        marker_dc1658d714d762fa757aaa26e0ce83ab.bindPopup(popup_466411d7e2cd7108a0bec49b7c528eb5)
+        ;
+
+        
+    
+    
+            var marker_39260fbe578dee2dfa9b9be5db3e2dd8 = L.marker(
+                [43.8672392, 10.2506055],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_68ed328233cee7f5fe7c9f9cc78c1062 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_39260fbe578dee2dfa9b9be5db3e2dd8.setIcon(icon_68ed328233cee7f5fe7c9f9cc78c1062);
+        
+    
+        var popup_0027d47a3cdf622db4ea078216913ff9 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_70270f5a27d14ae004f22847f19f2c2c = $(`<div id="html_70270f5a27d14ae004f22847f19f2c2c" style="width: 100.0%; height: 100.0%;"><b>Lunasia</b> <br>Address:viale Manin 4a <br>Website:<a href="https://www.lunasiaristorante.com/it/index" target="_blank">https://www.lunasiaristorante.com/it/index</a> <br> City:Viareggio <br> Region:Tuscany <br>Custom score: 0.1414</div>`)[0];
+                popup_0027d47a3cdf622db4ea078216913ff9.setContent(html_70270f5a27d14ae004f22847f19f2c2c);
+            
+        
+
+        marker_39260fbe578dee2dfa9b9be5db3e2dd8.bindPopup(popup_0027d47a3cdf622db4ea078216913ff9)
+        ;
+
+        
+    
+    
+            var marker_0485ccd6a06c8137a5e328e768120166 = L.marker(
+                [43.6771367, 13.2883479],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_1cbd5bf86b6b4014723b674418eb4d8a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_0485ccd6a06c8137a5e328e768120166.setIcon(icon_1cbd5bf86b6b4014723b674418eb4d8a);
+        
+    
+        var popup_01e12dabd1cf7c63e508be8665f7ac96 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_0adf1361a9250335ad2b64ad76474159 = $(`<div id="html_0adf1361a9250335ad2b64ad76474159" style="width: 100.0%; height: 100.0%;"><b>Madonnina del Pescatore</b> <br>Address:via Lungomare Italia 11 <br>Website:<a href="https://www.morenocedroni.it/" target="_blank">https://www.morenocedroni.it/</a> <br> City:Marzocca <br> Region:Marche <br>Custom score: 0.1333</div>`)[0];
+                popup_01e12dabd1cf7c63e508be8665f7ac96.setContent(html_0adf1361a9250335ad2b64ad76474159);
+            
+        
+
+        marker_0485ccd6a06c8137a5e328e768120166.bindPopup(popup_01e12dabd1cf7c63e508be8665f7ac96)
+        ;
+
+        
+    
+    
+            var marker_835841664c9c738b40322383d4cccdc1 = L.marker(
+                [38.1528221, 13.0821216],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_1652dea6a6bed6bb8bcaa8001932d67d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_835841664c9c738b40322383d4cccdc1.setIcon(icon_1652dea6a6bed6bb8bcaa8001932d67d);
+        
+    
+        var popup_5780e60e5771f44458b3ec7648b7daad = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_2b4d7091924a8fafd1f81d5842d9706e = $(`<div id="html_2b4d7091924a8fafd1f81d5842d9706e" style="width: 100.0%; height: 100.0%;"><b>Il Bavaglino</b> <br>Address:via dei Mille 2/b <br>Website:<a href="https://www.giuseppecosta.com" target="_blank">https://www.giuseppecosta.com</a> <br> City:Terrasini <br> Region:Sicily <br>Custom score: 0.1014</div>`)[0];
+                popup_5780e60e5771f44458b3ec7648b7daad.setContent(html_2b4d7091924a8fafd1f81d5842d9706e);
+            
+        
+
+        marker_835841664c9c738b40322383d4cccdc1.bindPopup(popup_5780e60e5771f44458b3ec7648b7daad)
+        ;
+
+        
+    
+    
+            var marker_f508302629085e550f57afa3fa87b96f = L.marker(
+                [37.5023612, 15.0873718],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_95d1373b44b0ee2c59b2ec63c056e43a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_f508302629085e550f57afa3fa87b96f.setIcon(icon_95d1373b44b0ee2c59b2ec63c056e43a);
+        
+    
+        var popup_c6fd55c60c3b00cbd30496ee7735bdee = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_613cae014b9e77e10af294aec8887123 = $(`<div id="html_613cae014b9e77e10af294aec8887123" style="width: 100.0%; height: 100.0%;"><b>Concezione Restaurant</b> <br>Address:via Giuseppe Verdi 143 <br>Website:<a href="https://concezionerestaurant.com/" target="_blank">https://concezionerestaurant.com/</a> <br> City:Catania <br> Region:Sicily <br>Custom score: 0.1008</div>`)[0];
+                popup_c6fd55c60c3b00cbd30496ee7735bdee.setContent(html_613cae014b9e77e10af294aec8887123);
+            
+        
+
+        marker_f508302629085e550f57afa3fa87b96f.bindPopup(popup_c6fd55c60c3b00cbd30496ee7735bdee)
+        ;
+
+        
+    
+    
+            var marker_0580bd6151eda482aa22fea066ebd13a = L.marker(
+                [45.4641943, 9.1896346],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_26e18c7f1fa6d990df5400e848704618 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_0580bd6151eda482aa22fea066ebd13a.setIcon(icon_26e18c7f1fa6d990df5400e848704618);
+        
+    
+        var popup_48d1e1bbac1c433362c012bd8b8088dd = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_9ad39c3ce6d55892f4b3bc9f1e73b3a8 = $(`<div id="html_9ad39c3ce6d55892f4b3bc9f1e73b3a8" style="width: 100.0%; height: 100.0%;"><b>Voce Aimo e Nadia</b> <br>Address:piazza della Scala 6 <br>Website:<a href="https://www.aimoenadia.com/voce-aimo-e-nadia" target="_blank">https://www.aimoenadia.com/voce-aimo-e-nadia</a> <br> City:Milan <br> Region:Lombardy <br>Custom score: 0.0641</div>`)[0];
+                popup_48d1e1bbac1c433362c012bd8b8088dd.setContent(html_9ad39c3ce6d55892f4b3bc9f1e73b3a8);
+            
+        
+
+        marker_0580bd6151eda482aa22fea066ebd13a.bindPopup(popup_48d1e1bbac1c433362c012bd8b8088dd)
+        ;
+
+        
+    
+    
+            var marker_86af66a202fb19589e845d4920de673e = L.marker(
+                [43.7917623, 7.6033131],
+                {}
+            ).addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+    
+            var icon_2006eaa0f682e18cca51ed2e895bab82 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_86af66a202fb19589e845d4920de673e.setIcon(icon_2006eaa0f682e18cca51ed2e895bab82);
+        
+    
+        var popup_3573399887a1867fc5240448d34ff7d8 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_10795810f323ec732ec273daec5f71e4 = $(`<div id="html_10795810f323ec732ec273daec5f71e4" style="width: 100.0%; height: 100.0%;"><b>Casa Buono</b> <br>Address:corso Cuneo 28 <br>Website:<a href="https://ristorantecasabuono.com/" target="_blank">https://ristorantecasabuono.com/</a> <br> City:Ventimiglia <br> Region:Liguria <br>Custom score: 0.0628</div>`)[0];
+                popup_3573399887a1867fc5240448d34ff7d8.setContent(html_10795810f323ec732ec273daec5f71e4);
+            
+        
+
+        marker_86af66a202fb19589e845d4920de673e.bindPopup(popup_3573399887a1867fc5240448d34ff7d8)
+        ;
+
+        
+    
+    
+            tile_layer_a2772d68d5092372b0b3867f6c3c8f2a.addTo(map_99949ff2d0c8e7924dfa74373838eec6);
+        
+</script>
+</html>
