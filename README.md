@@ -14,7 +14,7 @@ To get all the data that we needed, we did a web scraping process of the [*Miche
   - [**Michelin-restaurant-in-Italy-web-scraping.ipynb**](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/Project/Scraping%20Michelin%20restaurants.ipynb): A Jupyter Notebook containing Python code, explanations, outputs for each question of the homework and a pseudocode of an algorithm for moving a robot in a warehouse for packages collection. 
     - **Warning:** To view all output from the file please download the file and read it in a supported development environment;
   - [**search_engine_filters.py**](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/Project/search_engine_filters.py): This file was used in `Michelin-restaurant-in-Italy-web` for Bonus part and is an interactive restaurant search engine built with Python and ipywidgets, which offers advanced filtering capabilities. It features an intuitive interface with dynamic drop-down menus and checkboxes.
-    - **Warning**: To view the interactive interface, make sure to run the code cell in a environment with `ipywidgets` enabled. Here is an example of how it works:
+    - **Warning**: To view the interactive interface, make sure to run the code cell in a environment with `ipywidgets` enabled. *Here is an example of how it works:*
           ![Search Engine](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/blob/main/Images/Advance%20Search%20Engine.png)
   
 - [**`files/`**](https://github.com/Heibattttt/Michelin-restaurant-in-Italy-web-scraping/tree/main/files): A folder containing all output files generated from the homework tasks. In detail:
